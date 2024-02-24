@@ -1,72 +1,45 @@
-# Getting Started with Create React App
+# Navegabilidad de la Aplicación By Isaac Silva
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+La aplicación cuenta con una estructura de navegación que permite a los usuarios moverse a través de diferentes vistas, incluyendo la página de inicio, categorías de productos u ofertas y detalles de ítems específicos. A continuación, se describirá la navegabilidad y las rutas definidas en la aplicación:
 
-## Available Scripts
+## Página de Inicio
 
-In the project directory, you can run:
+La página de inicio sirve como punto de entrada a la aplicación. Aquí, los usuarios pueden ver una introducción general, posiblemente con destacados o elementos seleccionados.
 
-### `npm start`
+- **Ruta**: `/`
+- **Componente**: `Home`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Página de Inicio](/public/Screenshot%202024-02-24%20at%2012.08.57 AM.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Categorías de Productos u Ofertas
 
-### `npm test`
+Esta vista muestra los ítems según la categoría seleccionada por el usuario, ya sean productos o ofertas. Cada ítem se muestra con su respectivo título, descripción y una imagen.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Ruta**: `/category/:categoryId`
+    - `categoryId` puede ser "productos" para productos o "ofertas" para ofertas especiales.
+- **Componente**: `ItemListContainer`
 
-### `npm run build`
+![Categorías de Productos](/public/Screenshot%202024-02-24%20at%2012.09.13 AM.png)
+![Categorías de Ofertas](/public/Screenshot%202024-02-24%20at%2012.09.18 AM.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Detalles del Ítem
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La vista de detalles del ítem muestra información más detallada sobre un producto u oferta específica, incluyendo una descripción ampliada y posiblemente opciones adicionales como tamaños, colores o promociones relacionadas.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Ruta**: `/item/:itemId`
+    - `itemId` es el identificador único del producto u oferta.
+- **Componente**: `ItemDetail`
 
-### `npm run eject`
+![Detalles del Ítem](/public/Screenshot%202024-02-24%20at%2012.09.24 AM.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Componentes Adicionales
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Navbar
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+El `Navbar` proporciona enlaces rápidos a las principales secciones de la aplicación, facilitando la navegación entre la página de inicio, productos, ofertas y otras áreas importantes.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### BackgroundSlider
 
-## Learn More
+El `BackgroundSlider` añade un toque visual dinámico a la aplicación, mostrando una secuencia de imágenes de fondo que cambian a lo largo del tiempo.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
+Cada componente y vista están diseñados para ofrecer una experiencia de usuario fluida y coherente, asegurando que la navegación sea intuitiva y accesible desde cualquier punto de la aplicación.
