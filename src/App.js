@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Home } from './components/Home';
 import { ItemListContainer } from './components/ItemListContainer';
+import { ItemDetail } from './components/ItemDetail';
 import { BackgroundSlider } from './components/BackgroundSlider';
 
 import backgroundImage1 from './assets/futuristic1.jpg';
@@ -18,8 +19,9 @@ function App() {
         <BackgroundSlider images={backgrounds} duration={5} transition={2} />
         <Navbar />
         <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/category/:categoryId" element={<ItemListContainer />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/category/:categoryId" element={<ItemListContainer />} />
+          <Route path="/item/:itemId" element={<ItemDetail />} />
         </Routes>
       </div>
     </BrowserRouter>

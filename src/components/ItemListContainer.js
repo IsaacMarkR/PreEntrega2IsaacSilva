@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom';
+import products from '../data/products';
+import offers from '../data/offers';
 
 function ProductCard({ title, description, imageUrl }) {
   return (
@@ -16,29 +19,8 @@ function ProductCard({ title, description, imageUrl }) {
 
 function ItemListContainer() {
   const { categoryId } = useParams();
-  
-  const products = [
-    {
-      title: 'Smartwatch Futurista',
-      description: 'Un reloj inteligente con funcionalidades avanzadas y un diseño innovador.',
-      imageUrl: 'https://i.blogs.es/1a8f0d/captura-de-pantalla-2019-02-25-a-las-18.01.07/840_560.jpg' 
-    },
-    {
-      title: 'Auriculares Inalámbricos',
-      description: 'Auriculares de alta calidad con cancelación de ruido y sonido envolvente.',
-      imageUrl: 'https://elrincondechina.com/wp-content/uploads/2020/11/Red-Magic-CyberPods-TWS-2-erdc.jpg'
-    },
-  ];
 
-  const offers = [
-    {
-      title: 'Play Station 5 Futurista',
-      description: 'Una consola con tope de Hardware y Software capaz de revolucionar la realidad.',
-      imageUrl: 'https://i0.wp.com/clipset.com/wp-content/uploads/2019/11/sony-ps5.jpg'
-    },
-  ];
-
-  const itemsToShow = categoryId === '1' ? products : categoryId === '2' ? offers : [];
+  const itemsToShow = categoryId === 'productos' ? products : categoryId === 'ofertas' ? offers : [];
 
   return (
     <div style={{ padding: '20px', color: 'white' }}>
@@ -48,7 +30,9 @@ function ItemListContainer() {
       <Grid container spacing={2} justifyContent="center">
         {itemsToShow.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} key={index} style={{ display: 'flex', justifyContent: 'center' }}>
-            <ProductCard title={item.title} description={item.description} imageUrl={item.imageUrl} />
+            <Link to={`/item/${item.id}`} style={{ textDecoration: 'none' }}>
+              <ProductCard title={item.title} description={item.description} imageUrl={item.imageUrl} />
+            </Link>
           </Grid>
         ))}
       </Grid>
