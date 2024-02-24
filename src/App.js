@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Home } from './components/Home';
 import { ItemListContainer } from './components/ItemListContainer';
@@ -12,12 +13,16 @@ const backgrounds = [backgroundImage1, backgroundImage2, backgroundImage3];
 
 function App() {
   return (
-    <div>
-      <BackgroundSlider images={backgrounds} duration={5} transition={2} />
-      <Navbar />
-      <Home />
-      <ItemListContainer />
-    </div>
+    <BrowserRouter>
+      <div>
+        <BackgroundSlider images={backgrounds} duration={5} transition={2} />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/items" element={<ItemListContainer />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
