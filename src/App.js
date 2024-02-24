@@ -18,8 +18,8 @@ function App() {
         <BackgroundSlider images={backgrounds} duration={5} transition={2} />
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/items" element={<ItemListContainer />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/category/:categoryId" element={<ItemListContainer />} />
         </Routes>
       </div>
     </BrowserRouter>
